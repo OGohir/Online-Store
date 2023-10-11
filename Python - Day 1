@@ -1,0 +1,45 @@
+# Omaima Gohir
+# 5/31/2023
+# This program will demonstrate an online store which the user can pick from the many options and get the total amount of money back in tax.
+
+"""
+This function will take the user's input and determine if it is a valid item in the store menu. If the item is not correctly spelled, or incorrect in any way, the code will continue asking for a valid answer. 
+    
+    Preconditions:
+    item != integer or negative integer
+    items must b e spelled correctly
+    done = code stopping
+    
+    Returns:
+    the total price of the shopping cart items in the costumer's basket
+"""
+
+item_prices = {
+    "Milk": {"2%": 4.32, "3.25%": 4.32},
+    "Bread": {"Regular": 2.50},
+    "Water": {"Regular": 30.00},
+    "Eggs": {"A Dozen": 3.87},
+    "Butter": {"Regular": 3.42},
+    "Oil": {"Olive oil": 5.60, "Avocado oil": 5.60},
+    "Yogurt": {"Regular": 3.43},
+    "Coke": {"20 cans": 23.00, "Jug":5.00}
+}
+total = 0.00
+# Display available items
+print("Welcome to the grocery store!")
+print("Here are the available items:")
+print("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -")
+print('\n'.join(item_prices)) #joins all items into one string
+print("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -")
+
+print("What would you like to add in your cart?")
+cart = input("Add to Cart: ")
+while cart.lower() != "milk":
+    print("Invalid Item")
+    cart = input("Add to Cart: ")
+if cart.lower() == "Milk":
+    print("Which milk?")
+print("2% or 3.25%?")
+cart = input("Add to Cart: ")
+
+print("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -")
