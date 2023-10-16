@@ -1,0 +1,90 @@
+# Omaima Gohir
+# 5/31/2023
+# This program will demonstrate an online store which the user can pick from the many options and get the total amount of money back in tax.
+
+"""
+This function will take the user's input and determine if it is a valid item in the store menu. If the item is not correctly spelled, or incorrect in any way, the code will continue asking for a valid answer. 
+    
+    Preconditions:
+    item != integer or negative integer
+    items must be spelled correctly
+    done = code stopping
+    
+    Returns:
+    the total price of the shopping cart items in the costumer's basket
+"""
+
+#item names stored with prices and options
+item_prices = {
+    "Milk": {"2%": 4.32, "3.25%": 4.32},
+    "Bread": {"Regular": 2.50},
+    "Water": {"Regular": 30.00},
+    "Eggs": {"A Dozen": 3.87},
+    "Butter": {"Regular": 3.42},
+    "Oil": {"Olive oil": 5.60, "Avocado oil": 5.60},
+    "Yogurt": {"Regular": 3.43},
+    "Coke": {"20 cans": 23.00, "Jug": 5.00}
+}
+
+total = 0.00
+
+#Display available items/introduction
+print("Welcome to MooMoo's Magic Mart!")
+print("Here are the available items:")
+print("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -")
+print('\n'.join(item_prices))  # joins all items into one string
+print("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -")
+print("What would you like to add to your cart?")
+print("Enter 'stop' to proceed to check-out!")
+
+#When the stop_flag is not false (true), continue.
+stop_flag = False
+while not stop_flag:
+    print("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -")
+    cart = input("Add to Cart: ")
+#when stop_flag is true (not true), skip code and go to outer print statement
+    if cart.lower() == "stop":
+        stop_flag = True
+    else:
+        found_item = False
+        for item in item_prices: #item stored in the prices
+            if cart.capitalize() == item:
+                found_item = True #when an item is in the item_prices, code will continue.
+
+        if not found_item:
+            print("Invalid Item") #if item is not in item_prices, code will print invalid item.
+            
+        if cart.capitalize() == "Milk":
+            print("Which milk?")
+            print("2% or 3.25%?")
+            print("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -")
+            milk_type = input("Select the milk type: ")
+            while milk_type not in item_prices["Milk"]: #when milk type (2% or 3.25%) not in item prices, print statement.
+                print("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -")
+                print("Invalid milk type")
+                milk_type = input("Select the milk type: ")
+
+            print("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -")
+            quantity = float(input("How much milk do you need?: "))
+            #item prices in milk for the milk type.
+            milk_price = item_prices["Milk"][milk_type]
+            #stored in the total variable with the milk price * how much the customer wants
+            total += milk_price * quantity
+
+        elif cart.capitalize() == "Bread":
+            print("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -")
+            bread_type = "Regular" #type in the variable
+            quantity = float(input("How much bread do you need?: "))
+            bread_price = item_prices["Bread"][bread_type] #in item prices, pick the bread and bread types price which is stored in regular
+            total += bread_price * quantity
+
+        elif cart.capitalize() == "Water":
+            print("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -")
+            water_type = "Regular" #type in the variable
+            quantity = float(input("How much water do you need?: "))
+            water_price = item_prices["Water"][water_type] #in item prices, pick the water and water types price which is stored in regular
+            total += water_price * quantity
+
+print("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -")
+#prints total and the exact amount of money rounded to the nearest 2nd digit
+print("Total: $", round(total, 2))
