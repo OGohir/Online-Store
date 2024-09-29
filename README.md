@@ -1,4 +1,4 @@
-Project Overview:
+## Project Overview
 
   Hi! This was my first ever project for Python, and it is about an online store which the user has full ability to determine what items they want in what quantity.
   The goal of this project is to implement an online store in which the user is able to pick specific items, until they are satisfied.
@@ -9,17 +9,29 @@ Project Overview:
     - Once added, the user can type "done"
     - The program reveals a "receipt" including tax of all items.
 
-Project Goals:
+## Project Goals
 
   This function will take the user's input and determine if it is a valid item in the store menu. If the item is not correctly spelled, or incorrect in any way, the code will continue asking for a valid answer.
 
-  Preconditions:
+  **Preconditions:**
       - item can NOT be an integer or negative integer
       - items MUST be spelled correctly
       - "done" will give the final output
 
-  Parameters:
+  **Parameters:**
       - total = total money
 
-  Returns:
+  **Returns:**
       - the total price of the shopping cart items in the customer's basket
+
+## Future Improvements
+
+  **1. Remove Items:** 
+    - Introduce a remove items feature, as the customer cannot remove an item they placed in their cart.
+
+  **2. Spelling Error:** 
+    - Allow user tot ype in items without having to worry about capitilization.
+    
+  **3. Add More Options:**
+    - Realistically add greater options for products ihnstead of adding varities of one, such as for water where user can only buy one type for $30.
+
